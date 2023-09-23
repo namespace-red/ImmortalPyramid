@@ -6,7 +6,61 @@
     <e p="C:\Users\Maxim\Unity\ImmortalPyramid" t="IncludeRecursive">
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
+        <e p="Animations" t="Include">
+          <e p="Minotaur" t="Include" />
+          <e p="Player" t="Include" />
+        </e>
+        <e p="Prefabs" t="Include" />
         <e p="Scenes" t="Include" />
+        <e p="Scripts" t="Include">
+          <e p="Enemy.cs" t="Include" />
+          <e p="Health.cs" t="Include" />
+          <e p="Player" t="Include">
+            <e p="Bullet.cs" t="Include" />
+            <e p="Player.cs" t="Include" />
+            <e p="PlayerAnimationsController.cs" t="Include" />
+            <e p="Shotgun.cs" t="Include" />
+            <e p="Wallet.cs" t="Include" />
+            <e p="Weapon.cs" t="Include" />
+          </e>
+          <e p="UI" t="Include">
+            <e p="HealthBar.cs" t="Include" />
+          </e>
+        </e>
+        <e p="Texures" t="Include">
+          <e p="Bullet" t="Include" />
+          <e p="CartoonViking" t="Include">
+            <e p="Attack01" t="Include" />
+            <e p="AxeToGun01" t="Include" />
+            <e p="CorpsPose01" t="Include" />
+            <e p="DeathGun01" t="Include" />
+            <e p="DeathPose01" t="Include" />
+            <e p="DeathPose02" t="Include" />
+            <e p="Gun01ToAxe" t="Include" />
+            <e p="HitGun01" t="Include" />
+            <e p="HitPose01" t="Include" />
+            <e p="HitPose02" t="Include" />
+            <e p="IdleGun01" t="Include" />
+            <e p="IdlePose01" t="Include" />
+            <e p="IdlePose02" t="Include" />
+            <e p="Pose01ToPose02" t="Include" />
+            <e p="Reload01" t="Include" />
+            <e p="Render" t="Include" />
+            <e p="RunGun01" t="Include" />
+            <e p="RunPose01_01" t="Include" />
+            <e p="RunPose02" t="Include" />
+            <e p="Shoot01" t="Include" />
+          </e>
+          <e p="Forest" t="Include" />
+          <e p="Minotaur" t="Include" />
+          <e p="PaperUIKit" t="Include">
+            <e p="Pngs" t="Include" />
+          </e>
+          <e p="Weapon" t="Include" />
+        </e>
+        <e p="TilePalette" t="Include">
+          <e p="Ground" t="Include" />
+        </e>
       </e>
       <e p="ImmortalPyramid.sln" t="IncludeFlat" />
       <e p="obj" t="ExcludeRecursive" />
