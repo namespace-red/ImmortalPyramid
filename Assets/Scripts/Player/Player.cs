@@ -3,12 +3,14 @@ using UnityEngine;
 
 [RequireComponent(typeof(Health))]
 [RequireComponent(typeof(Wallet))]
+[RequireComponent(typeof(PlayerAnimationsController))]
 public class Player : MonoBehaviour
 {
     [SerializeField] private List<Weapon> _weapons;
     [SerializeField] private Transform _shootPoint;
 
     private Weapon _currentWeapon;
+    private PlayerAnimationsController _animationsController;
 
     [HideInInspector] public Health Health;
     [HideInInspector] public Wallet Wallet;
@@ -18,6 +20,7 @@ public class Player : MonoBehaviour
         _currentWeapon = _weapons[0];
         Health = GetComponent<Health>();
         Wallet = GetComponent<Wallet>();
+        _animationsController = GetComponent<PlayerAnimationsController>();
 
         Health.Healing(Health.MaxValue);
     }
@@ -27,6 +30,7 @@ public class Player : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             _currentWeapon.Shoot(_shootPoint);
+            _animationsController.PlayAttack();
         }
     }
 }
