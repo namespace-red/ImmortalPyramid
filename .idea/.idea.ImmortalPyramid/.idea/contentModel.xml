@@ -13,18 +13,58 @@
         <e p="Prefabs" t="Include" />
         <e p="Scenes" t="Include" />
         <e p="Scripts" t="Include">
-          <e p="Enemy.cs" t="Include" />
-          <e p="Health.cs" t="Include" />
-          <e p="Player" t="Include">
-            <e p="Bullet.cs" t="Include" />
-            <e p="Player.cs" t="Include" />
+          <e p="Animations" t="Include">
+            <e p="EnemyAnimationsController.cs" t="Include" />
+            <e p="IAttackAnimation.cs" t="Include" />
+            <e p="IDeathAnimation.cs" t="Include" />
+            <e p="IMovementAnimation.cs" t="Include" />
+            <e p="IVictoryAnimation.cs" t="Include" />
             <e p="PlayerAnimationsController.cs" t="Include" />
-            <e p="Shotgun.cs" t="Include" />
+          </e>
+          <e p="Attack" t="Include">
+            <e p="IAreaAttacking.cs" t="Include" />
+            <e p="IAttacking.cs" t="Include" />
+            <e p="MeleeAreaAttack.cs" t="Include" />
+          </e>
+          <e p="Enemy" t="Include">
+            <e p="Enemy.cs" t="Include" />
+          </e>
+          <e p="Factory" t="Include">
+            <e p="IFactory.cs" t="Include" />
+            <e p="StateMachineFactory.cs" t="Include" />
+          </e>
+          <e p="Health" t="Include">
+            <e p="Health.cs" t="Include" />
+          </e>
+          <e p="Movement" t="Include">
+            <e p="IMovable.cs" t="Include" />
+            <e p="IMovableTowardsTarget.cs" t="Include" />
+            <e p="MoveTowardsTarget.cs" t="Include" />
+          </e>
+          <e p="Player" t="Include">
+            <e p="Player.cs" t="Include" />
             <e p="Wallet.cs" t="Include" />
-            <e p="Weapon.cs" t="Include" />
+          </e>
+          <e p="StateMachine" t="Include">
+            <e p="EnemyStateMachine.cs" t="Include" />
+            <e p="StateMachine.cs" t="Include" />
+            <e p="States" t="Include">
+              <e p="AttackState.cs" t="Include" />
+              <e p="DeathState.cs" t="Include" />
+              <e p="FollowState.cs" t="Include" />
+              <e p="IState.cs" t="Include" />
+              <e p="VictoryState.cs" t="Include" />
+            </e>
+            <e p="Transition.cs" t="Include" />
+            <e p="TransitionsController.cs" t="Include" />
           </e>
           <e p="UI" t="Include">
             <e p="HealthBar.cs" t="Include" />
+          </e>
+          <e p="Weapons" t="Include">
+            <e p="Bullet.cs" t="Include" />
+            <e p="Shotgun.cs" t="Include" />
+            <e p="Weapon.cs" t="Include" />
           </e>
         </e>
         <e p="Texures" t="Include">
