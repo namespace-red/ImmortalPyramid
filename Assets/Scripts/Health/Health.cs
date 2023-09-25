@@ -4,18 +4,11 @@ using UnityEngine.Events;
 
 public class Health : MonoBehaviour
 {
-    [SerializeField] private float _minValue = 0f;
     [SerializeField] private float _maxValue = 100f;
     [SerializeField] private float _value;
     
     public UnityAction<float, float> ValueChanged;
     public UnityAction Died;
-
-    public float MinValue
-    {
-        get => _minValue;
-        private set => _minValue = value;
-    }
 
     public float MaxValue
     {
@@ -28,7 +21,7 @@ public class Health : MonoBehaviour
         get => _value;
         private set
         {
-            _value = Mathf.Clamp(value, _minValue , _maxValue);
+            _value = Mathf.Clamp(value, 0 , _maxValue);
             ValueChanged?.Invoke(Value, _maxValue);
             
             if (Value == 0)
@@ -36,6 +29,11 @@ public class Health : MonoBehaviour
         }
     }
 
+    public bool IsAlive
+    {
+        get => Value > 0;
+    }
+    
     public void ApplyDamage(float damage)
     {
         if (damage < 0)

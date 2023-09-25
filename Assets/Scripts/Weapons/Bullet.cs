@@ -10,7 +10,7 @@ public class Bullet : MonoBehaviour
         transform.Translate(Vector3.left * _speed * Time.deltaTime, Space.World);
     }
 
-    public void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.collider.TryGetComponent(out Health health))
         {
