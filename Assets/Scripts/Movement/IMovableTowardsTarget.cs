@@ -1,8 +1,9 @@
 using UnityEngine;
 
-public interface IMovableTowardsTarget : IMovable
+public interface IMovableTowardsTarget
 {
-    public Transform Target { get; }
+    public Transform Target { get; set; }
     
-    public void Stop();
+    public void StartMove();
+    public void StopMove();
 }
