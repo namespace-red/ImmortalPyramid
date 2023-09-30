@@ -1,23 +1,25 @@
 using System;
+using System.Collections;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 public class DeathState : IState
 {
-    private readonly Vector2 _deathPoint;
-    private IDeathAnimation _animation;
-    // private readonly IPhysicsRewardsFactory _rewardsFactory;
+    private readonly Collider2D _collider2D;
+    private readonly IDeathAnimation _animation;
     
-    public DeathState(Vector2 point, IDeathAnimation animation)
+    public DeathState(Collider2D collider2D, IDeathAnimation animation)
     {
-        _deathPoint = point;
+        _collider2D = collider2D;
         _animation = animation ?? throw new ArgumentException("DeathState._animation can't be null");
-        // _rewardsFactory = rewardsFactory ?? throw new ArgumentException("AttackState._attacker can't be null");
     }
     
     public void Enter()
     {
+        _collider2D.enabled = false;
+        _collider2D.attachedRigidbody.isKinematic = true;
         _animation.PlayDeath();
-        // => _rewardsFactory.Create(_deathPoint);
+        Object.Destroy(_collider2D.gameObject, 3);
     }
 
     public void Exit() { }

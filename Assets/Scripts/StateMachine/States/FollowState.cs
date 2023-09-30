@@ -3,7 +3,7 @@ using System;
 public class FollowState : IState
 {
     private readonly IMovableTowardsTarget _movement;
-    private IMovementAnimation _animation;
+    private readonly IMovementAnimation _animation;
     
     public FollowState(IMovableTowardsTarget movement, IMovementAnimation animation)
     {
@@ -13,14 +13,14 @@ public class FollowState : IState
 
     public void Enter()
     {
+        _movement.StartMove();
         _animation.SetMoveState(true);
-        _movement.Move();
     }
 
     public void Exit()
     {
+        _movement.StopMove();
         _animation.SetMoveState(false);
-        _movement.Stop();
     }
 
     public void Tick() { }

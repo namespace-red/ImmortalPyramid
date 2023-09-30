@@ -3,7 +3,7 @@ using System;
 public class AttackState : IState
 {
     private readonly IAttacking _attacker;
-    private IAttackAnimation _animation;
+    private readonly IAttackAnimation _animation;
     public AttackState(IAttacking attacker, IAttackAnimation animation)
     {
         _attacker = attacker ?? throw new ArgumentException("AttackState._attacker can't be null");

@@ -2,7 +2,7 @@ using System;
 
 public class VictoryState : IState
 {
-    private IVictoryAnimation _animation;
+    private readonly IVictoryAnimation _animation;
 
     public VictoryState(IVictoryAnimation animation)
     {

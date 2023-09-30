@@ -1,10 +1,9 @@
 using System;
-using UnityEngine;
 
-public class StateMachine
+public abstract class StateMachine
 {
     private IState _currentState;
-    private TransitionsController _transitions = new TransitionsController();
+    private readonly TransitionsController _transitions = new TransitionsController();
 
     public void Tick()
     {
@@ -16,19 +15,19 @@ public class StateMachine
         _currentState?.Tick();
     }
 
-    public void AddTransition(IState fromState, IState toState, Func<bool> transitionCondition)
+    protected void AddTransition(IState fromState, IState toState, Func<bool> transitionCondition)
     {
-        var transition = _transitions.CreateTransition(toState, transitionCondition);
+        var transition = TransitionsController.CreateTransition(toState, transitionCondition);
         _transitions.AddTransitionByState(fromState, transition);
     }
     
-    public void AddTransitionFromAnyStates(IState toState, Func<bool> transitionCondition)
+    protected void AddTransitionFromAnyStates(IState toState, Func<bool> transitionCondition)
     {
-        var transition = _transitions.CreateTransition(toState, transitionCondition);
+        var transition = TransitionsController.CreateTransition(toState, transitionCondition);
         _transitions.AddTransitionFromAnyStates(transition);
     }
-    
-    public void SetState(IState newState)
+
+    protected void SetState(IState newState)
     {
         _currentState?.Exit();
 

@@ -8,6 +8,9 @@ public class TransitionsController
     private readonly List<Transition> _transitionsFromAnyStates = new List<Transition>();
     private List<Transition> _currentTransitions;
 
+    public static Transition CreateTransition(IState nextState, Func<bool> transitionCondition)
+        => new Transition(nextState, transitionCondition);
+
     public void AddTransitionByState(IState state, Transition transition)
     {
         if (TryGetTransitionsByState(state, out var transitions) == false)
@@ -22,10 +25,7 @@ public class TransitionsController
     {
         _transitionsFromAnyStates.Add(transition);
     }
-    
-    public Transition CreateTransition(IState nextState, Func<bool> transitionCondition)
-        => new Transition(nextState, transitionCondition);
-    
+
     public Transition TryGetReadyTransition(IState currentState)
     {
         foreach (var transition in _transitionsFromAnyStates
