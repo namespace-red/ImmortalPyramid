@@ -1,8 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BranchesTreeState">
-    <expand />
-    <select />
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:master" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="40c4b899-7cca-44f8-89e2-b22f3137e0c2" name="Default Changelist" comment="" />
@@ -14,52 +34,63 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5A41D6B7-1898-42EC-A409-FD0B1C3E3DCF/fc/0c5e26ce/List`1.cs" root0="SKIP_HIGHLIGHTING" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/Player/Shotgun.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Player/Weapon.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Player/Wallet.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Enemy.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerAnimationsController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/UI/HealthBar.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Health.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/StateMachine/IState.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/StateMachine/AttackEnemyState.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/StateMachine/RunEnemyState.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Player/Bullet.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/StateMachine/AttackState.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Movement/IMovement.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Movement/IMovementTowardsTarget.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Movement/IMoving.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Movement/IMovingTowardsTarget.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Animations/IAttackAnimation.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Animations/IMovementAnimation.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Animations/IVictoryAnimation.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/StateMachine/States/IState.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Factory/EnemyStateMachineFactory.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Movement/IMovable.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/StateMachine/Transition.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Factory/IFactory.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Health/Health.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Factory/StateMachineFactory.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Movement/MovableTowardsTarget.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Animations/IDeathAnimation.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/Enemy.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/StateMachine/TransitionsController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/StateMachine/StateMachine.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/StateMachine/EnemyStateMachine.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Movement/MoveTowardsTarget.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Attack/IAttacking.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Attack/IAreaAttacking.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/StateMachine/States/FollowState.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/StateMachine/States/VictoryState.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/StateMachine/States/AttackState.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/StateMachine/States/DeathState.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Player/Player.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Animations/PlayerAnimationsController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Weapons/Bullet.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Weapons/Weapon.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/EnemyWavesSystem/IWave.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/EnemyWavesSystem/AbstractWave.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Factory/EnemeFactory.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/EnemyType.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/EnemyWavesSystem/WavesSetup.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/EnemyWavesSystem/TempWaveSetup.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/EnemyWavesSystem/IEnemySpawnSetup.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/EnemyWavesSystem/EnemySpawnSetup.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/EnemyWavesSystem/IEnemyGroupSetup.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/EnemyWavesSystem/EnemyGroupSetup.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/OneCoroutine.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/StateMachine/TransitionsController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Attack/IAreaAttacking.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Attack/IAttacking.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Animations/EnemyAnimationsController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Attack/MeleeAreaAttack.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/EnemyWavesSystem/IWaveSetup.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Movement/IMovable.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Movement/IMovableTowardsTarget.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/StateMachine/States/FollowState.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/StateMachine/States/AttackState.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/StateMachine/States/VictoryState.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/StateMachine/StateMachine.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/ITargetWithHeathData.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/TargetWithHealthData.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Player/Player.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/Enemy.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/Minotaur.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/ITargetData.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Factory/EnemyFactory.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Movement/MoveTowardsTarget.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/StateMachine/EnemyStateMachine.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/StateMachine/States/DeathState.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Factory/StateMachineFactory.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Factory/WaveFactory.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/EnemyWavesSystem/WaveSetup.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/EnemyWavesSystem/AllWavesSetup.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UI/NextWaveButton.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UI/NextWaveView.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/EnemyWavesSystem/WaveSystem.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/EnemyWavesSystem/Wave.cs" />
+        <option value="$PROJECT_DIR$/.git/info/exclude" />
       </list>
     </option>
   </component>
@@ -87,7 +118,18 @@
       <workItem from="1695534806344" duration="24215000" />
       <workItem from="1695580759839" duration="23203000" />
       <workItem from="1695641012892" duration="2440000" />
-      <workItem from="1695660353125" duration="4174000" />
+      <workItem from="1695660353125" duration="4812000" />
+      <workItem from="1695798930951" duration="2099000" />
+      <workItem from="1695808150803" duration="4285000" />
+      <workItem from="1695836503744" duration="1936000" />
+      <workItem from="1695843330329" duration="13493000" />
+      <workItem from="1695930324732" duration="10712000" />
+      <workItem from="1695996548658" duration="4117000" />
+      <workItem from="1696010294049" duration="27976000" />
+      <workItem from="1696093908022" duration="6430000" />
+      <workItem from="1696102742904" duration="2698000" />
+      <workItem from="1696145315173" duration="5856000" />
+      <workItem from="1696151721485" duration="992000" />
     </task>
     <servers />
   </component>
@@ -99,7 +141,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -110,10 +164,15 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="601" y="113" key="RiderGenerateDialog" timestamp="1695641991785">
+    <state x="601" y="113" key="RiderGenerateDialog" timestamp="1696069704451">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state x="601" y="113" key="RiderGenerateDialog/0.0.1536.824/-1920.0.1536.824@0.0.1536.824" timestamp="1696069704451" />
     <state x="601" y="113" key="RiderGenerateDialog/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1695641991785" />
+    <state x="519" y="23" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1695936033456">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="519" y="23" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1536.824/-1920.0.1536.824@0.0.1536.824" timestamp="1695936033456" />
     <state x="458" y="0" width="1092" height="811" key="dock-window-1" timestamp="1695584286684">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -122,9 +181,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="425" y="187" key="run.anything.popup/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1695377222327" />
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1695568505281">
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1696075421113">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824/-1920.0.1536.824@0.0.1536.824" timestamp="1696075421113" />
     <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1695568505281" />
   </component>
 </project>

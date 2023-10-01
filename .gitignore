@@ -11,6 +11,8 @@
 /[Uu]ser[Ss]ettings/
 
 /ProjectSettings/ProjectVersion.txt
+/Assets/TextMesh Pro/
+/Assets/TextMesh Pro*
 
 # MemoryCaptures can get excessive in size.
 # They also could contain extremely sensitive data
@@ -72,3 +74,4 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+/ImmortalPyramid.sln
