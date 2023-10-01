@@ -13,6 +13,7 @@ public class Wave : AbstractWave
     }
 
     private int AllEnemiesCount { get; set; }
+    private int SpawnedEnemiesCount { get; set; }
     private int DiedEnemiesCount { get; set; }
 
     public override void Start()
@@ -41,12 +42,14 @@ public class Wave : AbstractWave
                         Finished?.Invoke(this);
                 };
 
+                SpawnedEnemy?.Invoke(++SpawnedEnemiesCount, AllEnemiesCount);
+
                 if (IsLastEnemy(i, j) == false)
                     await Task.Delay(_waitSeconds * 1000);
             }
         }
 
-        LastEnemyCameOut?.Invoke();
+        SpawnedLastEnemy?.Invoke();
     }
 
     private bool IsLastEnemy(int enemyGroupNumber, int enemyNumber)

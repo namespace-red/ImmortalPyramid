@@ -10,15 +10,17 @@ public class WaveSystem : MonoBehaviour
     private WaveFactory _waveFactory;
     private readonly AllWavesSetup _allWavesSetup = new AllWavesSetup();
 
-    public UnityAction AllEnemiesInWaveCameOut;
+    public UnityAction StartedWave;
+    public UnityAction SpawnedAllEnemiesInWave;
+    public UnityAction<int, int> SpawnedEnemy;
     public UnityAction Finished;
 
     private void Awake()
     {
         IWaveSetup waveSetup1 = new WaveSetup();
-        waveSetup1.AddEnemies(EnemyType.Minotaur, 2);
+        waveSetup1.AddEnemies(EnemyType.Minotaur, 5);
         IWaveSetup waveSetup2 = new WaveSetup();
-        waveSetup2.AddEnemies(EnemyType.Minotaur, 3);
+        waveSetup2.AddEnemies(EnemyType.Minotaur, 8);
         
         _allWavesSetup.Add(waveSetup1);
         _allWavesSetup.Add(waveSetup2);
@@ -32,9 +34,12 @@ public class WaveSystem : MonoBehaviour
         ++_currentWaveNumber;
         
         AbstractWave newWave = _waveFactory.Create(_currentWaveNumber);
-        newWave.LastEnemyCameOut += OnLastEnemyHasLeft;
+        newWave.SpawnedLastEnemy += OnLastEnemyHasLeft;
+        newWave.SpawnedEnemy += SpawnedEnemy;
         newWave.Finished += OnWaveFinished;
         newWave.Start();
+        
+        StartedWave?.Invoke();
     }
 
     private void OnLastEnemyHasLeft()
@@ -42,7 +47,7 @@ public class WaveSystem : MonoBehaviour
         if (IsCurrentWaveLast()) 
             return;
         
-        AllEnemiesInWaveCameOut?.Invoke();
+        SpawnedAllEnemiesInWave?.Invoke();
     }
     
     private bool IsCurrentWaveLast()
@@ -50,7 +55,7 @@ public class WaveSystem : MonoBehaviour
     
     private void OnWaveFinished(AbstractWave finishedWave)
     {
-        finishedWave.LastEnemyCameOut -= OnLastEnemyHasLeft;
+        finishedWave.SpawnedLastEnemy -= OnLastEnemyHasLeft;
         finishedWave.Finished -= OnWaveFinished;
 
         if (_currentWaveNumber == _allWavesSetup.WaveCount)

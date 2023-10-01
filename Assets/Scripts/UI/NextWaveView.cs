@@ -16,13 +16,13 @@ public class NextWaveView : MonoBehaviour
     private void OnEnable()
     {
         _nextWaveButton.onClick.AddListener(OnNextWaveButtonClicked);
-        _waveSystem.AllEnemiesInWaveCameOut += ActivateButton;
+        _waveSystem.SpawnedAllEnemiesInWave += ActivateButton;
     }
 
     private void OnDisable()
     {
         _nextWaveButton.onClick.RemoveListener(OnNextWaveButtonClicked);
-        _waveSystem.AllEnemiesInWaveCameOut -= ActivateButton;
+        _waveSystem.SpawnedAllEnemiesInWave -= ActivateButton;
     }
     
     private void OnNextWaveButtonClicked()
