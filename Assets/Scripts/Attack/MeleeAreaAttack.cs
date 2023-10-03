@@ -2,12 +2,15 @@ using UnityEngine;
 
 public class MeleeAreaAttack : MonoBehaviour, IAreaAttacking
 {
-    [SerializeField] LayerMask _targetLayerMask;
+    [SerializeField] private LayerMask _targetLayerMask;
     [SerializeField] private Transform _attackPoint;
     [SerializeField, Min(0)] private float _damage;
     [SerializeField, Min(0)] private float _radius;
     [SerializeField, Min(0)] private float _cooldown;
-    [SerializeField] private float _remainingTime;
+    
+    private float _remainingTime;
+
+    public Transform AttackPoint => _attackPoint;
 
     public float Damage
     {

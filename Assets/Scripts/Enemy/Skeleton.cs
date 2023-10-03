@@ -1,22 +1,22 @@
 using System;
 using UnityEngine;
 
-[RequireComponent(typeof(MinotaurAnimationsController))]
+[RequireComponent(typeof(SkeletonAnimationsController))]
 [RequireComponent(typeof(MoveTowardsTarget))]
 [RequireComponent(typeof(MeleeAreaAttack))]
-public class Minotaur : Enemy
+public class Skeleton : Enemy
 {
-    private MinotaurAnimationsController _animationsController;
+    private SkeletonAnimationsController _animationsController;
     private StateMachine _stateMachine;
     
     private void Awake()
     {
-        _animationsController = GetComponent<MinotaurAnimationsController>();
+        _animationsController = GetComponent<SkeletonAnimationsController>();
         Health = GetComponent<Health>();
         Move = GetComponent<MoveTowardsTarget>();
         Attack = GetComponent<MeleeAreaAttack>();
         
-        EnemyType = EnemyType.Minotaur;
+        EnemyType = EnemyType.Skeleton;
     }
 
     private void Update()

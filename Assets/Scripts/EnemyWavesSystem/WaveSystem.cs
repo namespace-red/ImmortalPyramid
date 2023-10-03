@@ -18,9 +18,11 @@ public class WaveSystem : MonoBehaviour
     private void Awake()
     {
         IWaveSetup waveSetup1 = new WaveSetup();
-        waveSetup1.AddEnemies(EnemyType.Minotaur, 5);
+        waveSetup1.AddEnemies(EnemyType.Minotaur, 3);
+        waveSetup1.AddEnemies(EnemyType.Skeleton, 2);
         IWaveSetup waveSetup2 = new WaveSetup();
-        waveSetup2.AddEnemies(EnemyType.Minotaur, 8);
+        waveSetup2.AddEnemies(EnemyType.Skeleton, 4);
+        waveSetup2.AddEnemies(EnemyType.Minotaur, 4);
         
         _allWavesSetup.Add(waveSetup1);
         _allWavesSetup.Add(waveSetup2);

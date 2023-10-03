@@ -26,6 +26,9 @@ public class EnemyFactory : MonoBehaviour
             case EnemyType.Minotaur:
                 return CreateMinotaur();
             
+            case EnemyType.Skeleton:
+                return CreateSkeleton();
+            
             default:
                 throw new ArgumentException("Not correct EnemyType");
         }
@@ -38,5 +41,14 @@ public class EnemyFactory : MonoBehaviour
         var minotaur = newGameObject.GetComponent<Minotaur>();
         minotaur.Init(_target);
         return minotaur;
+    }
+    
+    public Enemy CreateSkeleton()
+    {
+        var prifab = Resources.Load<GameObject>( Folder + "Skeleton");
+        var newGameObject = Instantiate(prifab, _spawnPoint);
+        var skeleton = newGameObject.GetComponent<Skeleton>();
+        skeleton.Init(_target);
+        return skeleton;
     }
 }

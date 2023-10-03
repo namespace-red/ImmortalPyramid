@@ -1,7 +1,10 @@
+using UnityEngine;
+
 public interface IAttacking
 {
-    public bool CanAttack { get; }
+    public Transform AttackPoint { get; }
     public float Radius { get; }
+    public bool CanAttack { get; }
 
     public void Attack();
 }

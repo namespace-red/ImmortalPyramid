@@ -5,9 +5,9 @@ public class EnemyStateMachine : StateMachine
 {
     private readonly Enemy _enemy;
     private readonly ITargetWithHeathData _targetWithHeath;
-    private readonly EnemyAnimationsController _animationsController;
+    private readonly IEnemyAnimationsController _animationsController;
     
-    public EnemyStateMachine(Enemy enemy, ITargetWithHeathData targetWithHeath, EnemyAnimationsController animationsController)
+    public EnemyStateMachine(Enemy enemy, ITargetWithHeathData targetWithHeath, IEnemyAnimationsController animationsController)
     {
         _enemy = enemy ?? throw new ArgumentException("EnemyStateMachine._enemy can't be null");
         _targetWithHeath = targetWithHeath ?? throw new ArgumentException("EnemyStateMachine._targetWithHeath can't be null");
@@ -38,11 +38,11 @@ public class EnemyStateMachine : StateMachine
     }
 
     private bool IsTargetNearby()
-        => Vector2.Distance(_enemy.transform.position,
+        => Vector2.Distance(_enemy.Attack.AttackPoint.position,
             _targetWithHeath.Transform.position) <= _enemy.Attack.Radius;
 
     private bool IsTargetFar()
-        => Vector2.Distance(_enemy.transform.position,
+        => Vector2.Distance(_enemy.Attack.AttackPoint.position,
             _targetWithHeath.Transform.position) > _enemy.Attack.Radius;
 
     private bool IsTargetDead()
