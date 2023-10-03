@@ -3,14 +3,18 @@ using UnityEngine;
 
 public class EnemyStateMachine : StateMachine
 {
+    private const float AttackDistanceOffset = .25f;
     private readonly Enemy _enemy;
-    private readonly ITargetWithHeathData _targetWithHeath;
+    private readonly Health _targetHealth;
+    private readonly Collider2D _targetCollider2D;
     private readonly IEnemyAnimationsController _animationsController;
     
     public EnemyStateMachine(Enemy enemy, ITargetWithHeathData targetWithHeath, IEnemyAnimationsController animationsController)
     {
         _enemy = enemy ?? throw new ArgumentException("EnemyStateMachine._enemy can't be null");
-        _targetWithHeath = targetWithHeath ?? throw new ArgumentException("EnemyStateMachine._targetWithHeath can't be null");
+        targetWithHeath = targetWithHeath ?? throw new ArgumentException("EnemyStateMachine._targetWithHeath can't be null");
+        _targetHealth = targetWithHeath.Health;
+        _targetCollider2D = targetWithHeath.Transform.GetComponent<Collider2D>();
         _animationsController = animationsController ?? throw new ArgumentException("EnemyStateMachine._animationsController can't be null");
         
         Init();
@@ -39,14 +43,14 @@ public class EnemyStateMachine : StateMachine
 
     private bool IsTargetNearby()
         => Vector2.Distance(_enemy.Attack.AttackPoint.position,
-            _targetWithHeath.Transform.position) <= _enemy.Attack.Radius;
+            _targetCollider2D.ClosestPoint(_enemy.Attack.AttackPoint.position)) + AttackDistanceOffset < _enemy.Attack.Radius;
 
     private bool IsTargetFar()
         => Vector2.Distance(_enemy.Attack.AttackPoint.position,
-            _targetWithHeath.Transform.position) > _enemy.Attack.Radius;
+            _targetCollider2D.ClosestPoint(_enemy.Attack.AttackPoint.position)) + AttackDistanceOffset > _enemy.Attack.Radius;
 
     private bool IsTargetDead()
-        => _targetWithHeath.Health.IsAlive == false;
+        => _targetHealth.IsAlive == false;
     
     private bool IsDead()
         => _enemy.Health.IsAlive == false;
