@@ -6,7 +6,7 @@ public class EnemyFactory : MonoBehaviour
     [SerializeField] private GameObject _targetObjContainer;
     [SerializeField] private Transform _spawnPoint;
     
-    private const string Folder = "Prefabs/";
+    private const string Folder = "Prefabs/Enemies/";
     private ITargetWithHeathData _target;
 
     private void Start()
