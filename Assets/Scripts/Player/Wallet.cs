@@ -4,29 +4,36 @@ using UnityEngine.Events;
 
 public class Wallet : MonoBehaviour
 {
-    [SerializeField] private int _maxMoney = 100;
-    [SerializeField] private int _money;
-    
     public UnityAction<int> MoneyChanged;
     
-    public int MaxMoney { get; private set; }
+    [SerializeField] private int _money;
+    private IPersistentData _persistentData;
     
+    [field: SerializeField, Min(0)] public int MaxMoney { get; private set; } = 1000;
+
     public int Money
     {
         get => _money;
         private set
         {
             _money = value;
+            _persistentData.PlayerData.Money = value;
             MoneyChanged?.Invoke(Money);
         }
     }
 
+    public void Init(IPersistentData persistentData)
+    {
+        _persistentData = persistentData ?? throw new NullReferenceException(nameof(persistentData));
+        Money = _persistentData.PlayerData.Money;
+    }
+    
     public bool TryAddMoney(int value)
     {
         if (value < 0)
-            throw new ArgumentOutOfRangeException();
+            throw new ArgumentOutOfRangeException(nameof(value));
 
-        if (Money + value > _maxMoney)
+        if (Money + value > MaxMoney)
             return false;
 
         Money += value;
@@ -36,7 +43,7 @@ public class Wallet : MonoBehaviour
     public bool TryTakeMoney(int value)
     {
         if (value < 0)
-            throw new ArgumentOutOfRangeException();
+            throw new ArgumentOutOfRangeException(nameof(value));
 
         if (Money < value)
             return false;

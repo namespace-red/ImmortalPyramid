@@ -1,12 +1,7 @@
 using UnityEngine;
 
-public abstract class Weapon : MonoBehaviour
+public abstract class Weapon : Item
 {
-    [SerializeField] private string _label;
-    [SerializeField] private int _price;
-    [SerializeField] private Sprite _icon;
-    [SerializeField] private bool _isBuyed = false;
-
     [SerializeField] protected Bullet Bullet;
 
     public abstract void Shoot(Transform shootPoint);

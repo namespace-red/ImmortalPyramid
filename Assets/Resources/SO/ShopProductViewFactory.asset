@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 665e1a6c69d06ce419de3f1b0e9dd08d, type: 3}
+  m_Name: ShopProductViewFactory
+  m_EditorClassIdentifier: 
+  _weaponProductViewPrefab: {fileID: 3850713562761174752, guid: a50f8a5e7f66c2e41a6b17ae61409cdd, type: 3}
