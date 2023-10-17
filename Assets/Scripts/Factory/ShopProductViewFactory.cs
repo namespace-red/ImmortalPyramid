@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "ShopProductViewFactory", menuName = "SO/Shop/ShopProductViewFactory")]
+[CreateAssetMenu(fileName = "ShopProductViewFactory", menuName = "SO/Factory/ShopProductViewFactory")]
 public class ShopProductViewFactory : ScriptableObject
 {
     [SerializeField] private ShopProductView _weaponProductViewPrefab;

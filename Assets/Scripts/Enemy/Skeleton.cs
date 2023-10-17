@@ -6,6 +6,8 @@ using UnityEngine;
 [RequireComponent(typeof(MeleeAreaAttack))]
 public class Skeleton : Enemy
 {
+    [SerializeField] private StateMachineFactory _stateMachineFactory;
+
     private SkeletonAnimationsController _animationsController;
     private StateMachine _stateMachine;
     
@@ -26,12 +28,10 @@ public class Skeleton : Enemy
 
     public void Init(ITargetWithHeathData target)
     {
-        target = target ?? throw new ArgumentException("Target can't be null");
-        
+        if (target == null) throw new NullReferenceException(nameof(target));
         Move.Target = target.Transform;
         
-        StateMachineFactory smFactory = new StateMachineFactory();
-        _stateMachine = smFactory.CreateEnemyStateMachine(
+        _stateMachine = _stateMachineFactory.CreateEnemyStateMachine(
             this, target, _animationsController);
     }
 }

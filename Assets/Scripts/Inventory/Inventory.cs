@@ -14,14 +14,17 @@ public class Inventory : MonoBehaviour
         set => _persistentData.PlayerData.CurrentItemIndex = value;
     }
 
-    public void Init(IPersistentData persistentData)
+    public void Init(IPersistentData persistentData, WeaponFactory weaponFactory)
     {
         _persistentData = persistentData ?? throw new NullReferenceException(nameof(persistentData));
-        _items = _persistentData.PlayerData.Inventory;
+
+        foreach (var item in _persistentData.PlayerData.Inventory)
+            _items.Add(weaponFactory.Create(item));
     }
     public void Add(Item item)
     {
         _items.Add(item);
+        _persistentData.PlayerData.Inventory.Add(item.ItemType);
     }
 
     public Item GetCurrentItem()
@@ -32,7 +35,7 @@ public class Inventory : MonoBehaviour
         if (++CurrentItemIndex == _items.Count)
             CurrentItemIndex = 0;
         
-        return _items[CurrentItemIndex];
+        return GetCurrentItem();
     }
     
     public Item GetPastItem()
@@ -40,6 +43,6 @@ public class Inventory : MonoBehaviour
         if (--CurrentItemIndex < 0)
             CurrentItemIndex = _items.Count - 1;
         
-        return _items[CurrentItemIndex];
+        return GetCurrentItem();
     }
 }

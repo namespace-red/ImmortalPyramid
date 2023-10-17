@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Health))]
@@ -8,7 +7,6 @@ using UnityEngine;
 [RequireComponent(typeof(ShopClient))]
 public class Player : MonoBehaviour, ITargetWithHeathData
 {
-    [SerializeField] private List<Weapon> _weapons;
     [SerializeField] private Transform _shootPoint;
 
     private PlayerAnimationsController _animationsController;
@@ -20,7 +18,7 @@ public class Player : MonoBehaviour, ITargetWithHeathData
     public ShopClient ShopClient { get; private set; }
     public Weapon CurrentWeapon { get; private set; }
 
-    public void Init(IPersistentData persistentData)
+    public void Init(IPersistentData persistentData, WeaponFactory weaponFactory)
     {
         _animationsController = GetComponent<PlayerAnimationsController>();
         Health = GetComponent<Health>();
@@ -28,9 +26,12 @@ public class Player : MonoBehaviour, ITargetWithHeathData
         ShopClient = GetComponent<ShopClient>();
         _inventory = GetComponent<Inventory>();
         
+        if (persistentData == null) throw new NullReferenceException(nameof(persistentData));
+        if (weaponFactory == null) throw new NullReferenceException(nameof(weaponFactory));
+        
         Wallet.Init(persistentData);
-        _inventory.Init(persistentData);
-        ShopClient.Init(Wallet, _inventory);
+        _inventory.Init(persistentData, weaponFactory);
+        ShopClient.Init(Wallet, _inventory, weaponFactory);
         
         CurrentWeapon = (Weapon)_inventory.GetCurrentItem();
         Health.Healing(Health.MaxValue);

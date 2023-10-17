@@ -1,21 +1,20 @@
 using System;
+using UnityEngine;
 
-public class WaveFactory
+[CreateAssetMenu(fileName = "WaveFactory", menuName = "SO/Factory/WaveFactory")]
+public class WaveFactory : ScriptableObject
 {
-    private readonly EnemyFactory _enemyFactory;
-    private readonly AllWavesSetup _allWavesSetup;
+    private EnemyFactory _enemyFactory;
+    private IPersistentData _persistentData;
 
-    public WaveFactory(EnemyFactory enemyFactory, AllWavesSetup allWavesSetup)
+    public void Init(EnemyFactory enemyFactory, IPersistentData persistentData)
     {
-        _enemyFactory = enemyFactory ?? throw new ArgumentException("FollowState._enemyFactory can't be null");
-        _allWavesSetup = allWavesSetup ?? throw new ArgumentException("FollowState._allWavesSetup can't be null");
+        _enemyFactory = enemyFactory ?? throw new ArgumentException(nameof(enemyFactory));
+        _persistentData = persistentData ?? throw new ArgumentException(nameof(persistentData));
     }
 
     public AbstractWave Create(int waveNumber)
     {
-        AbstractWave newAbstractWave = new Wave(
-            _allWavesSetup.Get(waveNumber), _enemyFactory);
-        
-        return newAbstractWave;
+        return new Wave(_persistentData.WavesData.AllWavesSetup.Get(waveNumber), _enemyFactory);
     }
 }

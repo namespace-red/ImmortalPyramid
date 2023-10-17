@@ -1,28 +1,48 @@
+using System;
 using System.Collections.Generic;
 using Newtonsoft.Json;
-using UnityEngine;
 
 public class PlayerSavingData
 {
+    private int _money;
+    private int _currentItemIndex;
+
     public PlayerSavingData()
     {
-        var prifab = Resources.Load<GameObject>( "Prefabs/Waepons/Shotgun");
-        var newGameObject = GameObject.Instantiate(prifab);
-        var defaultItem = newGameObject.GetComponent<Shotgun>();
-        
-        Inventory = new List<Item>();
-        Inventory.Add(defaultItem);
+        Inventory = new List<ItemType> { ItemType.WeaponShotgun };
     }
 
     [JsonConstructor]
-    public PlayerSavingData(int money, List<Item> inventory, int currentItemIndex)
+    public PlayerSavingData(IEnumerable<ItemType> inventory, int money, int currentItemIndex)
     {
+        Inventory = new List<ItemType>(inventory);
         Money = money;
-        Inventory = new List<Item>(inventory);
         CurrentItemIndex = currentItemIndex;
     }
 
-    public int Money { get; set; }
-    public List<Item> Inventory { get; set; }
-    public int CurrentItemIndex { get; set; }
+    public int Money
+    {
+        get => _money;
+        set
+        {
+            if (value < 0)
+                throw new ArgumentOutOfRangeException(nameof(value));
+
+            _money = value;
+        }
+    }
+
+    public List<ItemType> Inventory { get; }
+
+    public int CurrentItemIndex
+    {
+        get => _currentItemIndex;
+        set
+        {
+            if (value < 0)
+                throw new ArgumentOutOfRangeException(nameof(value));
+
+            _currentItemIndex = value;
+        }
+    }
 }

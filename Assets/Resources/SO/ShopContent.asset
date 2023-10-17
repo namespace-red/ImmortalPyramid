@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68c1774f64d293b4c8663f395929d510, type: 3}
   m_Name: ShopContent
   m_EditorClassIdentifier: 
-  _weaponProducts:
+  _products:
   - {fileID: 11400000, guid: 62c182e3e0abdc84cb245400898905c7, type: 2}
   - {fileID: 11400000, guid: 62a429fc005279a4a9a3b1a0f223f093, type: 2}
+  - {fileID: 11400000, guid: 77e20cfe78ede34428d218e831bf618c, type: 2}

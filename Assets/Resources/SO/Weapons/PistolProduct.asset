@@ -12,9 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a265829d3364e14384ff2b7c8796891, type: 3}
   m_Name: PistolProduct
   m_EditorClassIdentifier: 
-  <Model>k__BackingField: {fileID: 6746737545545086996, guid: 636672d98833814479ab5a1fd083e260, type: 3}
   <Label>k__BackingField: Pistol
   <Price>k__BackingField: 50
   <Icon>k__BackingField: {fileID: 21300000, guid: 668507a99dfd71d449bbc9c404f574d0, type: 3}
-  <IsBuyed>k__BackingField: 1
-  <WeaponType>k__BackingField: 1
+  <IsBought>k__BackingField: 1
+  <Type>k__BackingField: 1

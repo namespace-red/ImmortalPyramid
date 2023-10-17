@@ -1,54 +1,60 @@
 using System;
 using UnityEngine;
 
-public class EnemyFactory : MonoBehaviour
+[CreateAssetMenu(fileName = "EnemyFactory", menuName = "SO/Factory/EnemyFactory")]
+public class EnemyFactory : ScriptableObject
 {
-    [SerializeField] private GameObject _targetObjContainer;
-    [SerializeField] private Transform _spawnPoint;
+    [SerializeField] private GameObject _minotaurPrefab;
+    [SerializeField] private GameObject _skeletonPrefab;
     
-    private const string Folder = "Prefabs/Enemies/";
     private ITargetWithHeathData _target;
+    private Transform _spawnPoint;
 
-    private void Start()
+    public void Init(Transform spawnPoint, ITargetWithHeathData target)
     {
-        _targetObjContainer = _targetObjContainer ?? throw new ArgumentException("EnemyFactory._targetObjContainer can't be null");
-        
-        if (_targetObjContainer.TryGetComponent<ITargetWithHeathData>(out _target) == false)
-            throw new ArgumentException("EnemyFactory._targetObjContainer doesn't have ITargetWithHeathData");
-        
-        _spawnPoint = _spawnPoint ?? throw new ArgumentException("EnemyFactory._spawnPoint can't be null");
+        _spawnPoint = spawnPoint ?? throw new NullReferenceException(nameof(spawnPoint));
+        _target = target ?? throw new NullReferenceException(nameof(target));
+        CheckPrefabs();
     }
 
     public Enemy Create(EnemyType enemyType)
     {
+        Enemy newEnemy;
+        
         switch (enemyType)
         {
             case EnemyType.Minotaur:
-                return CreateMinotaur();
-            
+                newEnemy = Create(_minotaurPrefab);
+                ((Minotaur)newEnemy).Init(_target);
+                break;
+
             case EnemyType.Skeleton:
-                return CreateSkeleton();
+                newEnemy = Create(_skeletonPrefab);
+                ((Skeleton)newEnemy).Init(_target);
+                break;
             
             default:
-                throw new ArgumentException("Not correct EnemyType");
+                throw new ArgumentException($"Not correct type {enemyType}");
         }
+
+        return newEnemy;
     }
     
-    public Enemy CreateMinotaur()
+    private Enemy Create(GameObject prefab)
     {
-        var prifab = Resources.Load<GameObject>( Folder + "Minotaur");
-        var newGameObject = Instantiate(prifab, _spawnPoint);
-        var minotaur = newGameObject.GetComponent<Minotaur>();
-        minotaur.Init(_target);
-        return minotaur;
+        var newGameObject = Instantiate(prefab, _spawnPoint);
+        return newGameObject.GetComponent<Enemy>();
     }
-    
-    public Enemy CreateSkeleton()
+
+    private void CheckPrefabs()
     {
-        var prifab = Resources.Load<GameObject>( Folder + "Skeleton");
-        var newGameObject = Instantiate(prifab, _spawnPoint);
-        var skeleton = newGameObject.GetComponent<Skeleton>();
-        skeleton.Init(_target);
-        return skeleton;
+        CheckForNull(_minotaurPrefab);
+        CheckForNull(_skeletonPrefab);
+    }
+
+    private void CheckForNull(GameObject gameObject)
+    {
+        if (gameObject == null)
+            throw new NullReferenceException(nameof(gameObject));
     }
 }

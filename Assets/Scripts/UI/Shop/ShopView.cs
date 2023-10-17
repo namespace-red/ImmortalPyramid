@@ -23,7 +23,7 @@ public class ShopView : MonoBehaviour
 
     private void OnEnable()
     {
-        Show(_shopContent.WeaponProducts);
+        Show(_shopContent.Products);
     }
     
     private void Show(IEnumerable<ShopProduct> products)

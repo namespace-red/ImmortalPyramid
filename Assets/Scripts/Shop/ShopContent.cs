@@ -6,16 +6,16 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "ShopContent", menuName = "SO/Shop/ShopContent")]
 public class ShopContent : ScriptableObject
 {
-    [SerializeField] private List<WeaponProduct> _weaponProducts;
+    [SerializeField] private List<ShopProduct> _products;
 
-    public IEnumerable<WeaponProduct> WeaponProducts => _weaponProducts;
+    public IEnumerable<ShopProduct> Products => _products;
 
     private void OnValidate()
     {
-        var productDuplicates = _weaponProducts.GroupBy(p => p.WeaponType)
+        var productDuplicates = _products.GroupBy(p => p.Type)
             .Where(array => array.Count() > 1);
         
         if (productDuplicates.Count() > 0)
-            throw new InvalidOperationException(nameof(_weaponProducts));
+            throw new InvalidOperationException(nameof(_products));
     }
 }

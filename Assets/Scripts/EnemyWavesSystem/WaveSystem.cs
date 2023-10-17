@@ -4,38 +4,35 @@ using UnityEngine.Events;
 
 public class WaveSystem : MonoBehaviour
 {
-    [SerializeField] private EnemyFactory _enemyFactory;
-    
-    private int _currentWaveNumber;
+    [SerializeField] private Wallet _wallet;
+
+    private IDataProvider _dataProvider;
+    private IPersistentData _persistentData;
     private WaveFactory _waveFactory;
-    private readonly AllWavesSetup _allWavesSetup = new AllWavesSetup();
 
     public UnityAction StartedWave;
     public UnityAction SpawnedAllEnemiesInWave;
     public UnityAction<int, int> SpawnedEnemy;
     public UnityAction Finished;
 
-    private void Awake()
+    private int CurrentWaveNumber
     {
-        IWaveSetup waveSetup1 = new WaveSetup();
-        waveSetup1.AddEnemies(EnemyType.Minotaur, 3);
-        waveSetup1.AddEnemies(EnemyType.Skeleton, 2);
-        IWaveSetup waveSetup2 = new WaveSetup();
-        waveSetup2.AddEnemies(EnemyType.Skeleton, 4);
-        waveSetup2.AddEnemies(EnemyType.Minotaur, 4);
-        
-        _allWavesSetup.Add(waveSetup1);
-        _allWavesSetup.Add(waveSetup2);
+        get => _persistentData.WavesData.CurrentWaveNumber;
+        set => _persistentData.WavesData.CurrentWaveNumber = value;
+    }
 
-        _enemyFactory = _enemyFactory ?? throw new NullReferenceException("WaveSystem._enemyFactory can't be null");
-        _waveFactory = new WaveFactory(_enemyFactory, _allWavesSetup);
+    public void Init(IDataProvider dataProvider, IPersistentData persistentData, WaveFactory waveFactory)
+    {
+        _dataProvider = dataProvider ?? throw new NullReferenceException(nameof(dataProvider));
+        _persistentData = persistentData ?? throw new NullReferenceException(nameof(persistentData));
+        _waveFactory = waveFactory ?? throw new NullReferenceException(nameof(waveFactory));
     }
 
     public void StartNextWave()
     {
-        ++_currentWaveNumber;
+        ++CurrentWaveNumber;
         
-        AbstractWave newWave = _waveFactory.Create(_currentWaveNumber);
+        AbstractWave newWave = _waveFactory.Create(CurrentWaveNumber);
         newWave.SpawnedLastEnemy += OnLastEnemyHasLeft;
         newWave.SpawnedEnemy += SpawnedEnemy;
         newWave.Finished += OnWaveFinished;
@@ -53,14 +50,18 @@ public class WaveSystem : MonoBehaviour
     }
     
     private bool IsCurrentWaveLast()
-        => _currentWaveNumber == _allWavesSetup.WaveCount;
+        => CurrentWaveNumber == _persistentData.WavesData.AllWavesSetup.WaveCount;
     
     private void OnWaveFinished(AbstractWave finishedWave)
     {
         finishedWave.SpawnedLastEnemy -= OnLastEnemyHasLeft;
         finishedWave.Finished -= OnWaveFinished;
 
-        if (_currentWaveNumber == _allWavesSetup.WaveCount)
+        if (IsCurrentWaveLast())
             Finished?.Invoke();
+
+        _wallet.TryAddMoney(20);
+        
+        _dataProvider.Save();
     }
 }

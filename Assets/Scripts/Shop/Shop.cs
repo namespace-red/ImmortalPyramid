@@ -5,14 +5,14 @@ public class Shop : ScriptableObject
 {
     public bool TryBuy(ShopProduct product, ShopClient client)
     {
-        bool isBuyed = client.Wallet.TryTakeMoney(product.Price);
+        bool isBought = client.Wallet.TryTakeMoney(product.Price);
 		
-        if (isBuyed)
+        if (isBought)
         {
-            client.GiveProduct(product.Model);
-            product.IsBuyed = true;
+            client.GiveProduct(product.Type);
+            product.IsBought = true;
         }
 		
-        return isBuyed;
+        return isBought;
     }
 }

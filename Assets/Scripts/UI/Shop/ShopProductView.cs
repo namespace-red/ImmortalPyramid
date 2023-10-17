@@ -39,7 +39,7 @@ public class ShopProductView : MonoBehaviour
         _price.text = Product.Price.ToString();
         _icon.sprite = Product.Icon;
 
-        SetBuyed(Product.IsBuyed);
+        SetBuyed(Product.IsBought);
     }
 
     public void SetBuyed(bool state)

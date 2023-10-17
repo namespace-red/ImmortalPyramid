@@ -1,14 +1,31 @@
+using System;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 public class AllWavesSetup
 {
-    private readonly List<IWaveSetup> _waveSetups = new List<IWaveSetup>();
+    public AllWavesSetup()
+    {
+        WaveSetups = new List<IWaveSetup>();
+    }
 
-    public int WaveCount => _waveSetups.Count;
-    
+    [JsonConstructor]
+    public AllWavesSetup(List<IWaveSetup> waveSetups)
+    {
+        WaveSetups = waveSetups;
+    }
+
+    public int WaveCount => WaveSetups.Count;
+    public List<IWaveSetup> WaveSetups { get; }
+
     public IWaveSetup Get(int waveNumber)
-        => _waveSetups[waveNumber - 1];
+    {
+        if ((waveNumber < 1) || (waveNumber > WaveCount))
+            throw new ArgumentOutOfRangeException(waveNumber.ToString());
+        
+        return WaveSetups[waveNumber - 1];
+    }
 
     public void Add(IWaveSetup waveSetup)
-        => _waveSetups.Add(waveSetup);
+        => WaveSetups.Add(waveSetup);
 }

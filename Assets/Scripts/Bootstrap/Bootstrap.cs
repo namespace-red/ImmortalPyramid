@@ -1,12 +1,13 @@
-using System;
 using UnityEngine;
 
 [RequireComponent(typeof(PlayerBootstrap))]
 [RequireComponent(typeof(ShopBootstrap))]
+[RequireComponent(typeof(WavesSystemBootstrap))]
 public class Bootstrap : MonoBehaviour
 {
     private PlayerBootstrap _playerBootstrap;
     private ShopBootstrap _shopBootstrap;
+    private WavesSystemBootstrap _wavesSystemBootstrap;
     
     private IDataProvider _dataProvider;
     private IPersistentData _persistentData;
@@ -15,31 +16,20 @@ public class Bootstrap : MonoBehaviour
     {
         _playerBootstrap = GetComponent<PlayerBootstrap>();
         _shopBootstrap = GetComponent<ShopBootstrap>();
+        _wavesSystemBootstrap = GetComponent<WavesSystemBootstrap>();
 
-        InitializeData();
+        InitData();
         
         _playerBootstrap.Init(_persistentData);
         _shopBootstrap.Init(_dataProvider, _persistentData);
+        _wavesSystemBootstrap.Init(_dataProvider, _persistentData);
     }
     
-    private void InitializeData()
+    private void InitData()
     {
         _persistentData = new PersistentData();
-        _dataProvider = new DataLocalProvider(_persistentData);
+        _dataProvider = new LocalDataProvider(_persistentData);
 
-        LoadDataOrInit();
-    }
-
-    private void LoadDataOrInit()
-    {
-        if (_dataProvider.TryLoad() == false)
-        {
-            _persistentData.PlayerData = new PlayerSavingData();
-            Debug.Log("Loaded default saves");
-        }
-        else
-        {
-            Debug.Log("Loaded saves");
-        }
+        _dataProvider.LoadOrInit();
     }
 }
