@@ -8,7 +8,7 @@ public class ProgressBar : SmoothBar
 
     private void Awake()
     {
-        _waveSystem = _waveSystem ?? throw new NullReferenceException("ProgressBar._waveSystem can't be null");
+        if (_waveSystem == null) throw new NullReferenceException(nameof(_waveSystem));
         Slider = GetComponent<Slider>();
     }
 
@@ -23,5 +23,4 @@ public class ProgressBar : SmoothBar
         _waveSystem.StartedWave -= ClearValue;
         _waveSystem.SpawnedEnemy -= SetValue;
     }
-
 }

@@ -8,7 +8,7 @@ public class HeathBar : SmoothBar
 
     private void Awake()
     {
-        _health = _health ?? throw new NullReferenceException("HeathBar._health can't be null");
+        if (_health == null) throw new NullReferenceException(nameof(_health));
         Slider = GetComponent<Slider>();
     }
 
@@ -21,5 +21,4 @@ public class HeathBar : SmoothBar
     {
         _health.ValueChanged -= SetValue;
     }
-
 }

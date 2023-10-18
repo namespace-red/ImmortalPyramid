@@ -7,34 +7,28 @@ public class MeleeAreaAttack : MonoBehaviour, IAreaAttacking
     [SerializeField, Min(0)] private float _damage;
     [SerializeField, Min(0)] private float _radius;
     [SerializeField, Min(0)] private float _cooldown;
-    
-    private float _remainingTime;
 
     public Transform AttackPoint => _attackPoint;
 
     public float Damage
     {
-        get { return _damage; }
-        private set { _damage = value; }
+        get => _damage;
+        private set => _damage = value;
     }
     
     public float Radius
     {
-        get { return _radius; }
-        private set { _radius = value; }
+        get => _radius;
+        private set => _radius = value;
     }
     
     public float Cooldown
     {
-        get { return _cooldown; }
-        private set { _cooldown = value; }
+        get => _cooldown;
+        private set => _cooldown = value;
     }
 
-    public float RemainingTime
-    {
-        get { return _remainingTime; }
-        private set { _remainingTime = value; }
-    }
+    public float RemainingTime { get; private set; }
 
     public bool CanAttack { get; private set; }
 
@@ -59,10 +53,10 @@ public class MeleeAreaAttack : MonoBehaviour, IAreaAttacking
             return;
             
         CanAttack = false;
-        FisycalAttack();
+        PhysicalAttack();
     }
 
-    private void FisycalAttack()
+    private void PhysicalAttack()
     {
         Collider2D[] colliders2D = Physics2D.OverlapCircleAll( _attackPoint.position, Radius, _targetLayerMask );
 

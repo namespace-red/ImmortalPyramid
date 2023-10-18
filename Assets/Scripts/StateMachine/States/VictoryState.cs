@@ -6,7 +6,7 @@ public class VictoryState : IState
 
     public VictoryState(IVictoryAnimation animation)
     {
-        _animation = animation ?? throw new ArgumentException("VictoryState._animation can't be null");
+        _animation = animation ?? throw new NullReferenceException(nameof(animation));
     }
 
     public void Enter()

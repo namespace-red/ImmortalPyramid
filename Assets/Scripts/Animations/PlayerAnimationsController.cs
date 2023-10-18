@@ -24,9 +24,6 @@ public class PlayerAnimationsController : MonoBehaviour, IAttackAnimation,
         _health.Died -= PlayDeath;
     }
 
-    // private void OnJumped() => _animator.SetBool(Params.IsJumping, true);
-    // private void OnGrounded() => _animator.SetBool(Params.IsJumping, false);
- 
     public void PlayAttack()
     {
         _animator.SetTrigger(States.Shoot);
@@ -45,7 +42,6 @@ public class PlayerAnimationsController : MonoBehaviour, IAttackAnimation,
     private static class Params
     {
         public const string IsRuning = nameof(IsRuning);
-        // public const string IsJumping = nameof(IsJumping);
     }
 
     private static class States

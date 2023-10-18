@@ -7,8 +7,8 @@ public class FollowState : IState
     
     public FollowState(IMovableTowardsTarget movement, IMovementAnimation animation)
     {
-        _movement = movement ?? throw new ArgumentException("FollowState._movement can't be null");
-        _animation = animation ?? throw new ArgumentException("FollowState._animation can't be null");
+        _movement = movement ?? throw new NullReferenceException(nameof(movement));
+        _animation = animation ?? throw new NullReferenceException(nameof(animation));
     }
 
     public void Enter()

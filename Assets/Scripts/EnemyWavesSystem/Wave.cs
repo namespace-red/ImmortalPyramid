@@ -2,9 +2,9 @@ using System.Threading.Tasks;
 
 public class Wave : AbstractWave
 {
+    private const int WaitSeconds = 1;
     private readonly IWaveSetup _waveSetup;
     private readonly EnemyFactory _enemyFactory;
-    private readonly int _waitSeconds = 1;
 
     public Wave(IWaveSetup waveSetup, EnemyFactory enemyFactory)
     {
@@ -45,7 +45,7 @@ public class Wave : AbstractWave
                 SpawnedEnemy?.Invoke(++SpawnedEnemiesCount, AllEnemiesCount);
 
                 if (IsLastEnemy(i, j) == false)
-                    await Task.Delay(_waitSeconds * 1000);
+                    await Task.Delay(WaitSeconds * 1000);
             }
         }
 

@@ -4,16 +4,16 @@ using UnityEngine.Events;
 
 public class WaveSystem : MonoBehaviour
 {
+    public UnityAction StartedWave;
+    public UnityAction SpawnedAllEnemiesInWave;
+    public UnityAction<int, int> SpawnedEnemy;
+    public UnityAction Finished;
+
     [SerializeField] private Wallet _wallet;
 
     private IDataProvider _dataProvider;
     private IPersistentData _persistentData;
     private WaveFactory _waveFactory;
-
-    public UnityAction StartedWave;
-    public UnityAction SpawnedAllEnemiesInWave;
-    public UnityAction<int, int> SpawnedEnemy;
-    public UnityAction Finished;
 
     private int CurrentWaveNumber
     {
@@ -32,7 +32,7 @@ public class WaveSystem : MonoBehaviour
     {
         ++CurrentWaveNumber;
         
-        AbstractWave newWave = _waveFactory.Create(CurrentWaveNumber);
+        var newWave = _waveFactory.Create(CurrentWaveNumber);
         newWave.SpawnedLastEnemy += OnLastEnemyHasLeft;
         newWave.SpawnedEnemy += SpawnedEnemy;
         newWave.Finished += OnWaveFinished;

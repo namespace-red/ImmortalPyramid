@@ -9,8 +9,8 @@ public class NextWaveView : MonoBehaviour
     
     private void Awake()
     {
-        _nextWaveButton = _nextWaveButton ?? throw new NullReferenceException("NextWaveView._nextWaveButton can't be null");
-        _waveSystem = _waveSystem ?? throw new NullReferenceException("NextWaveView._waveSystem can't be null");
+        if (_waveSystem == null) throw new NullReferenceException(nameof(_waveSystem));
+        if (_nextWaveButton == null) throw new NullReferenceException(nameof(_nextWaveButton));
     }
 
     private void OnEnable()

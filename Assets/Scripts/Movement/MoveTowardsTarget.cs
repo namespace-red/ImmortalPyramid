@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -7,7 +8,6 @@ public class MoveTowardsTarget : MonoBehaviour, IMovableTowardsTarget
     private Rigidbody2D _rigidbody;
     
     public Transform Target { get; set; }
-    
     public bool IsMoving { get; private set; }
 
     private void Awake()
@@ -25,8 +25,7 @@ public class MoveTowardsTarget : MonoBehaviour, IMovableTowardsTarget
     {
         IsMoving = true;
         
-        if (Target == null)
-            Debug.LogError("MoveTowardsTarget.Target is null");
+        if (Target == null) throw new NullReferenceException(nameof(Target));
     }
 
     public void StopMove()

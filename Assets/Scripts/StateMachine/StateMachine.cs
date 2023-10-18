@@ -2,8 +2,8 @@ using System;
 
 public abstract class StateMachine
 {
-    private IState _currentState;
     private readonly TransitionsController _transitions = new TransitionsController();
+    private IState _currentState;
 
     public void Tick()
     {

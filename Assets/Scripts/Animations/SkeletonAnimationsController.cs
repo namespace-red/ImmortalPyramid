@@ -33,11 +33,9 @@ public class SkeletonAnimationsController : MonoBehaviour, IEnemyAnimationsContr
     
     private static class States 
     {
-        public const string Idle = nameof(Idle);
         public const string Walk = nameof(Walk);
         public const string Attack = nameof(Attack);
         public const string Dead = nameof(Dead);
         public const string React = nameof(React);
-        
     }
 }

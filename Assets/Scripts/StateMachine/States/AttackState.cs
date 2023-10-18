@@ -4,10 +4,11 @@ public class AttackState : IState
 {
     private readonly IAttacking _attacker;
     private readonly IAttackAnimation _animation;
+    
     public AttackState(IAttacking attacker, IAttackAnimation animation)
     {
-        _attacker = attacker ?? throw new ArgumentException("AttackState._attacker can't be null");
-        _animation = animation ?? throw new ArgumentException("AttackState._animation can't be null");
+        _attacker = attacker ?? throw new NullReferenceException(nameof(attacker));
+        _animation = animation ?? throw new NullReferenceException(nameof(animation));
     }
     
     public void Enter() { }

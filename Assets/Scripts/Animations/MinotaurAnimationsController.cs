@@ -40,6 +40,5 @@ public class MinotaurAnimationsController : MonoBehaviour, IEnemyAnimationsContr
         public const string Attack = nameof(Attack);
         public const string Dead = nameof(Dead);
         public const string Victory = nameof(Victory);
-        
     }
 }

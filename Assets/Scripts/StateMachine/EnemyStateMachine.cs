@@ -11,11 +11,11 @@ public class EnemyStateMachine : StateMachine
     
     public EnemyStateMachine(Enemy enemy, ITargetWithHeathData targetWithHeath, IEnemyAnimationsController animationsController)
     {
-        _enemy = enemy ?? throw new ArgumentException("EnemyStateMachine._enemy can't be null");
-        targetWithHeath = targetWithHeath ?? throw new ArgumentException("EnemyStateMachine._targetWithHeath can't be null");
+        _enemy = enemy ?? throw new NullReferenceException(nameof(enemy));
+        if (targetWithHeath == null) throw new NullReferenceException(nameof(targetWithHeath));
         _targetHealth = targetWithHeath.Health;
         _targetCollider2D = targetWithHeath.Transform.GetComponent<Collider2D>();
-        _animationsController = animationsController ?? throw new ArgumentException("EnemyStateMachine._animationsController can't be null");
+        _animationsController = animationsController ?? throw new NullReferenceException(nameof(animationsController));
         
         Init();
     }

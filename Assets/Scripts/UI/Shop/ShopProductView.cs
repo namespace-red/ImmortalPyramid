@@ -6,13 +6,13 @@ using UnityEngine.UI;
 
 public class ShopProductView : MonoBehaviour
 {
+    public UnityAction<ShopProductView> BuyButtonClicked;
+    
     [SerializeField] private TMP_Text _label;
     [SerializeField] private TMP_Text _price;
     [SerializeField] private Image _icon;
     [SerializeField] private Button _buyButton;
     [SerializeField] private Image _verifiedImage;
-
-    public UnityAction<ShopProductView> BuyButtonClicked;
     
     public ShopProduct Product { get; private set; }
 
