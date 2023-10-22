@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dc9bf7d428c94b439f15bc8f38c35e6, type: 3}
   m_Name: WeaponFactory
   m_EditorClassIdentifier: 
+  _bulletFactory: {fileID: 11400000, guid: 5fbff29b856829042ab7ee2b8e87f714, type: 2}
   _shotgunPrefab: {fileID: 6746737545545086996, guid: a97612bf097191c498aef155384da653, type: 3}
   _pistolPrefab: {fileID: 6746737545545086996, guid: 636672d98833814479ab5a1fd083e260, type: 3}
   _uziPrefab: {fileID: 6746737545545086996, guid: 914ce43d4f18f6c46a3ff891f1c7d0cb, type: 3}

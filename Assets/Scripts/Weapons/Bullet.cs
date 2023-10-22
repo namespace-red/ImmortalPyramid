@@ -2,9 +2,14 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    [SerializeField] private float _damage;
     [SerializeField] private float _speed;
-    
+    private float _damage;
+
+    public void Init(float damage)
+    {
+        _damage = damage;
+    }
+
     private void Update()
     {
         transform.Translate(Vector3.left * _speed * Time.deltaTime, Space.World);

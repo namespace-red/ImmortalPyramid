@@ -39,8 +39,7 @@ public class PlayerSavingData
         get => _currentItemIndex;
         set
         {
-            if (value < 0)
-                throw new ArgumentOutOfRangeException(nameof(value));
+            if (value < 0) throw new ArgumentOutOfRangeException(nameof(value));
 
             _currentItemIndex = value;
         }

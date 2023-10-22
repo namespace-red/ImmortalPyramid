@@ -11,7 +11,11 @@ public class Inventory : MonoBehaviour
     private int CurrentItemIndex
     {
         get => _persistentData.PlayerData.CurrentItemIndex;
-        set => _persistentData.PlayerData.CurrentItemIndex = value;
+        set
+        {
+            _persistentData.PlayerData.CurrentItemIndex = value;
+            Debug.Log(GetCurrentItem().name);
+        }
     }
 
     public void Init(IPersistentData persistentData, WeaponFactory weaponFactory)
@@ -30,19 +34,19 @@ public class Inventory : MonoBehaviour
     public Item GetCurrentItem()
         => _items[CurrentItemIndex];
     
-    public Item GetNextItem()
+    public void SelectNextItem()
     {
-        if (++CurrentItemIndex == _items.Count)
+        if (CurrentItemIndex + 1 == _items.Count)
             CurrentItemIndex = 0;
-        
-        return GetCurrentItem();
+        else
+            ++CurrentItemIndex;
     }
     
-    public Item GetPastItem()
+    public void SelectPastItem()
     {
-        if (--CurrentItemIndex < 0)
+        if (CurrentItemIndex - 1 < 0)
             CurrentItemIndex = _items.Count - 1;
-        
-        return GetCurrentItem();
+        else
+            --CurrentItemIndex;
     }
 }

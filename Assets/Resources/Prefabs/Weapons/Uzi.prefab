@@ -44,4 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03b6afbafa1bc614aa1863ec5c7a0dce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Bullet: {fileID: 5513571893670084546, guid: 4c4b3e75335c14d46871620563bbd187, type: 3}
+  _damage: 10
+  _cooldown: 0.2
+  <RemainingTime>k__BackingField: 0

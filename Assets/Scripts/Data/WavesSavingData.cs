@@ -23,6 +23,19 @@ public class WavesSavingData
         IWaveSetup waveSetup7 = new WaveSetup();
         waveSetup7.AddEnemies(EnemyType.Skeleton, 6);
         waveSetup7.AddEnemies(EnemyType.Minotaur, 6);
+        IWaveSetup waveSetup8 = new WaveSetup();
+        waveSetup8.AddEnemies(EnemyType.Minotaur, 5);
+        waveSetup8.AddEnemies(EnemyType.Skeleton, 6);        
+        waveSetup8.AddEnemies(EnemyType.Minotaur, 4);
+        IWaveSetup waveSetup9 = new WaveSetup();
+        waveSetup9.AddEnemies(EnemyType.Skeleton, 4);
+        waveSetup9.AddEnemies(EnemyType.Minotaur, 7);
+        waveSetup9.AddEnemies(EnemyType.Skeleton, 6);
+        IWaveSetup waveSetup10 = new WaveSetup();
+        waveSetup10.AddEnemies(EnemyType.Skeleton, 5);
+        waveSetup10.AddEnemies(EnemyType.Minotaur, 5);
+        waveSetup10.AddEnemies(EnemyType.Skeleton, 7);
+        waveSetup10.AddEnemies(EnemyType.Minotaur, 8);
         
         AllWavesSetup = new AllWavesSetup();
         AllWavesSetup.Add(waveSetup1);
@@ -32,6 +45,9 @@ public class WavesSavingData
         AllWavesSetup.Add(waveSetup5);
         AllWavesSetup.Add(waveSetup6);
         AllWavesSetup.Add(waveSetup7);
+        AllWavesSetup.Add(waveSetup8);
+        AllWavesSetup.Add(waveSetup9);
+        AllWavesSetup.Add(waveSetup10);
     }
 
     [JsonConstructor]

@@ -44,8 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 614f1191204fdc54c9f392bdbcb1b93f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _label: Shotgun
-  _price: 0
-  _icon: {fileID: 21300000, guid: fd15b7177c059f94e994743d38e1950e, type: 3}
-  _isBuyed: 1
-  Bullet: {fileID: 5513571893670084546, guid: 4c4b3e75335c14d46871620563bbd187, type: 3}
+  _damage: 50
+  _cooldown: 1
+  <RemainingTime>k__BackingField: 0

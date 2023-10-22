@@ -16,7 +16,7 @@ public class Player : MonoBehaviour, ITargetWithHeathData
     public Health Health { get; private set; }
     public Wallet Wallet { get; private set; }
     public ShopClient ShopClient { get; private set; }
-    public Weapon CurrentWeapon { get; private set; }
+    public Weapon CurrentWeapon => (Weapon)_inventory.GetCurrentItem();
 
     public void Init(IPersistentData persistentData, WeaponFactory weaponFactory)
     {
@@ -33,13 +33,12 @@ public class Player : MonoBehaviour, ITargetWithHeathData
         _inventory.Init(persistentData, weaponFactory);
         ShopClient.Init(Wallet, _inventory, weaponFactory);
         
-        CurrentWeapon = (Weapon)_inventory.GetCurrentItem();
         Health.Healing(Health.MaxValue);
     }
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButton(0) && CurrentWeapon.CanAttack)
         {
             CurrentWeapon.Shoot(_shootPoint);
             _animationsController.PlayAttack();
