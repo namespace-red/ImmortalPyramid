@@ -44,6 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03b6afbafa1bc614aa1863ec5c7a0dce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damage: 10
+  _damage: 20
   _cooldown: 0.2
   <RemainingTime>k__BackingField: 0
