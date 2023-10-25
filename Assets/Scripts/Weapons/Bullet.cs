@@ -1,18 +1,17 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D))]
 public class Bullet : MonoBehaviour
 {
     [SerializeField] private float _speed;
     private float _damage;
+    private Rigidbody2D _rigidbody2D;
 
     public void Init(float damage)
     {
         _damage = damage;
-    }
-
-    private void Update()
-    {
-        transform.Translate(Vector3.left * _speed * Time.deltaTime, Space.World);
+        _rigidbody2D = GetComponent<Rigidbody2D>();
+        _rigidbody2D.velocity = Vector3.left * _speed;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -20,7 +19,8 @@ public class Bullet : MonoBehaviour
         if (collision.collider.TryGetComponent(out Health health))
         {
             health.ApplyDamage(_damage);
-            Destroy(gameObject);
         }
+        
+        Destroy(gameObject);
     }
 }

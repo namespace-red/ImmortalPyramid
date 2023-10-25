@@ -15,5 +15,5 @@ MonoBehaviour:
   <Label>k__BackingField: Pistol
   <Price>k__BackingField: 50
   <Icon>k__BackingField: {fileID: 21300000, guid: 668507a99dfd71d449bbc9c404f574d0, type: 3}
-  <IsBought>k__BackingField: 1
+  <IsBought>k__BackingField: 0
   <Type>k__BackingField: 1
